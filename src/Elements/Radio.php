@@ -1,0 +1,50 @@
+<?php
+
+namespace Webup\LaravelForm\Elements;
+use Exception;
+
+class Radio extends Base  {
+
+	protected $type;
+	protected $radios = [];
+
+	public function __construct($type)
+	{
+		parent::__construct();
+		$this->type = $type;
+	}
+
+	public function render()
+	{
+		return view(
+		'form::radio', [
+			'value' => $this->value,
+			'label' => $this->label,
+			'required' => $this->required,
+			'name' => $this->name,
+			'errors' => $this->errors,
+			'type' => $this->type,
+			'attr' => $this->attr,
+			'radios' => $this->radios
+		])->render();
+	}
+
+	public function addRadio($value, $label = false, $id = null, $attr = [])
+	{
+		$id = is_null($id) ? $label : $id;
+		$this->radios[] = [
+			'label' => $label,
+			'value' => $value,
+			'id' => $id,
+			'attr' => $attr
+		];
+
+		return $this;
+	}
+
+	public function __toString()
+	{
+		return $this->render();
+	}
+
+}
