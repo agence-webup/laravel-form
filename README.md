@@ -20,8 +20,8 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Credits
 
-- [Robin PARISI][https://github.com/robinparisi]
-- [Bapstiste DUCATEL][https://https://github.com/Biptaste]
+- [Robin PARISI](https://github.com/robinparisi)
+- [Bapstiste DUCATEL](https://https://github.com/Biptaste)
 
 ## License
 
