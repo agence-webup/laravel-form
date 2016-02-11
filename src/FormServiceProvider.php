@@ -13,7 +13,7 @@ class FormServiceProvider extends ServiceProvider
     {
         $this->setupConfig();
         view()->share('config', $this->app['config']->get('form'));
-        $this->loadViewsFrom(__DIR__.'/template/', 'form');
+        $this->loadViewsFrom(__DIR__.'/views/', 'form');
     }
 
     protected function setupConfig()
