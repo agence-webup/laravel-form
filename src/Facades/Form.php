@@ -1,5 +1,7 @@
 <?php
+
 namespace Webup\LaravelForm\Facades;
+
 use Illuminate\Support\Facades\Facade;
 
 class Form extends Facade

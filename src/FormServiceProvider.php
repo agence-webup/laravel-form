@@ -7,18 +7,14 @@ use Illuminate\Support\ServiceProvider;
 class FormServiceProvider extends ServiceProvider
 {
     /**
-    * Perform post-registration booting of services.
-    *
-    * @return void
-    */
+     * Perform post-registration booting of services.
+     */
     public function boot()
     {
         $this->setupConfig();
         view()->share('config', $this->app['config']->get('form'));
         $this->loadViewsFrom(__DIR__.'/template/', 'form');
-
     }
-
 
     protected function setupConfig()
     {
@@ -28,16 +24,13 @@ class FormServiceProvider extends ServiceProvider
     }
 
     /**
-    * Register any package services.
-    *
-    * @return void
-    */
+     * Register any package services.
+     */
     public function register()
     {
         $this->app['form'] = $this->app->share(function ($app) {
             //dd(old('name'));
             return new FormFactory($this->app['config'], $this->app['request']);
         });
-
     }
 }
