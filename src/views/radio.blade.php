@@ -8,7 +8,7 @@
     </ul>
     @endif
     @foreach($radios as $radio)
-    <label for="{{$name}}">
+    <label for="{{$radio['id']}}">
         <input
         type="{{$type}}"
         id="{{$radio['id']}}"
