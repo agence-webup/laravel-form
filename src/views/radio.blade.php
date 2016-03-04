@@ -1,4 +1,4 @@
-<div class="{{$config['divClass']}} @if($errors)f-error @endif">
+<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors)f-error @endif">
     <label>{{$label}}</label>
     @if($errors)
     <ul class="{{$config['errorMessageClass']}}">

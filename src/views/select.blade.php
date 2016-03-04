@@ -1,4 +1,4 @@
-<div class="{{$config['divClass']}} @if($errors)f-error @endif">
+<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors)f-error @endif">
     @if($label) <label for="{{$name}}">{!! $label !!} @if($required)<i class="f-required">*</i>@endif</label>@endif
     <select
     id="{{$name}}"

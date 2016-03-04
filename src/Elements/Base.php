@@ -10,6 +10,7 @@ class Base
     protected $placeholder;
     protected $divClass;
     protected $required;
+    protected $wrapperClass;
 
     protected $errors;
     protected $attr;
@@ -67,6 +68,13 @@ class Base
     public function attr(array $attr = [])
     {
         $this->attr = $attr;
+
+        return $this;
+    }
+
+    public function wrapperClass($wrapperClass)
+    {
+        $this->wrapperClass = $wrapperClass;
 
         return $this;
     }

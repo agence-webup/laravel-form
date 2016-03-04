@@ -24,6 +24,7 @@ class Checkbox extends Base
             'errors' => $this->errors,
             'type' => $this->type,
             'attr' => $this->attr,
+            'wrapperClass' => $this->wrapperClass,
         ])->render();
     }
 
