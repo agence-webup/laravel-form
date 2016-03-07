@@ -30,6 +30,18 @@ class Select extends Base
         ])->render();
     }
 
+    public function addOptions(array $options)
+    {
+        foreach ($options as $value => $label) {
+            $this->options[] = [
+                'value' => $value,
+                'label' => $label,
+            ];
+        }
+
+        return $this;
+    }
+
     public function addOption($value = null, $label = null)
     {
         $this->options[] = [
