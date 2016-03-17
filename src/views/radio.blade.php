@@ -1,5 +1,5 @@
 <div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors)f-error @endif">
-    <label>{{$label}}</label>
+    <label>{!!$label!!}</label>
     @if($errors)
     <ul class="{{$config['errorMessageClass']}}">
         @foreach ($errors as $error)
