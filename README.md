@@ -7,7 +7,7 @@ Work in progress
 Via Composer
 
 ``` bash
-$ composer require webup/form
+$ composer require webup/laravel-form
 ```
 
 ## Usage
@@ -26,4 +26,3 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
