@@ -8,7 +8,7 @@
         @if($required)required @endif
         @if($placeholder)placeholder="{{$placeholder}}"@endif
         @foreach($attr as $key => $value)
-        @if(is_int($key)){{$value}}@else{{$key}}="{{$value}}"@endif
+        @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif
         @endforeach
         >
         {!! $label !!} @if($required)<i class="f-required">*</i>@endif
