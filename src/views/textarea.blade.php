@@ -1,5 +1,5 @@
 <div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors)f-error @endif">
-    @if($label) <label for="{{$name}}">{{$label}} @if($required)<i class="f-required">*</i>@endif</label>@endif
+    @if($label) <label for="{{$name}}">{!!$label!!} @if($required)<i class="f-required">*</i>@endif</label>@endif
     <textarea
     type="{{$type}}"
     id="{{$name}}"
