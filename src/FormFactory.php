@@ -51,8 +51,7 @@ class FormFactory
         } else {
             $errors = [];
         }
-
-        if ($this->oldValues) {
+        if (isset($this->oldValues[$name])) {
             $value = $this->oldValues[$name];
         } else {
             $value = null;
