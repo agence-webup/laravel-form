@@ -7,7 +7,7 @@
     @if($value)value="{{$value}}" @endif
     @if($required)required @endif
     @if($placeholder)placeholder="{{$placeholder}}"@endif
-    @foreach($attr as $key => $value)
+    @foreach($attr as $key => $val)
     @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif
     @endforeach
     >

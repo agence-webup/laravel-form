@@ -16,7 +16,7 @@
         @if($value == $radio['value']) checked @endif
         value="{{$radio['value']}}"
         @if($required)required @endif
-        @foreach($radio['attr'] as $key => $value)
+        @foreach($radio['attr'] as $key => $val)
         @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif
         @endforeach
         >
