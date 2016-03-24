@@ -27,7 +27,7 @@ class FormFactory
 
     public function create($type, $name)
     {
-        $inputTypes = ['text', 'email', 'password', 'file'];
+        $inputTypes = ['text', 'email', 'password', 'file', 'number'];
 
         if (in_array($type, $inputTypes)) {
             return $this->initElement(new Input($type), $name);
