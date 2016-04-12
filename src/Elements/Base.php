@@ -5,6 +5,7 @@ namespace Webup\LaravelForm\Elements;
 class Base
 {
     protected $label;
+    protected $oldValue;
     protected $value;
     protected $name;
     protected $placeholder;
@@ -77,5 +78,17 @@ class Base
         $this->wrapperClass = $wrapperClass;
 
         return $this;
+    }
+
+    public function oldValue($value)
+    {
+        $this->oldValue = $value;
+
+        return $this;
+    }
+
+    public function getValue()
+    {
+        return $this->oldValue ? $this->oldValue : $this->value;
     }
 }

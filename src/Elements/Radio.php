@@ -17,7 +17,7 @@ class Radio extends Base
     {
         return view(
         'form::radio', [
-            'value' => $this->value,
+            'value' => $this->getValue(),
             'label' => $this->label,
             'required' => $this->required,
             'name' => $this->name,

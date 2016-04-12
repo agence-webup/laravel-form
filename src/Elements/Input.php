@@ -17,7 +17,7 @@ class Input extends Base
         return view(
         'form::input', [
             'placeholder' => $this->placeholder,
-            'value' => $this->value,
+            'value' => $this->getValue(),
             'label' => $this->label,
             'required' => $this->required,
             'name' => $this->name,

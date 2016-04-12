@@ -57,6 +57,6 @@ class FormFactory
             $value = null;
         }
 
-        return $input->value($value)->errors($errors)->name($name);
+        return $input->oldValue($value)->errors($errors)->name($name);
     }
 }

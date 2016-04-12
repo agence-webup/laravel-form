@@ -18,7 +18,7 @@ class Select extends Base
         return view(
         'form::select', [
             'placeholder' => $this->placeholder,
-            'value' => $this->value,
+            'value' => $this->getValue(),
             'label' => $this->label,
             'required' => $this->required,
             'name' => $this->name,
