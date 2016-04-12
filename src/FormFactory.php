@@ -2,14 +2,12 @@
 
 namespace Webup\LaravelForm;
 
-use Illuminate\Http\Request;
 use Webup\LaravelForm\Elements\Base;
 use Webup\LaravelForm\Elements\Input;
 use Webup\LaravelForm\Elements\Radio;
 use Webup\LaravelForm\Elements\Textarea;
 use Webup\LaravelForm\Elements\Select;
 use Webup\LaravelForm\Elements\Checkbox;
-use Illuminate\Contracts\Config\Repository as Config;
 use Exception;
 
 class FormFactory
@@ -18,11 +16,11 @@ class FormFactory
     protected $errors;
     protected $oldValues;
 
-    public function __construct(Config $config, Request $request)
+    public function __construct($config, $values, $errors)
     {
-        $this->errors = $request->session()->get('errors');
-        $this->oldValues = $request->session()->get('_old_input');
-        $this->config = $config->get('form');
+        $this->errors = $errors;
+        $this->oldValues = $values;
+        $this->config = $config;
     }
 
     public function create($type, $name)
