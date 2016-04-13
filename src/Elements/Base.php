@@ -16,11 +16,12 @@ class Base
     protected $errors;
     protected $attr;
 
-    public function __construct()
+    public function __construct($oldValue)
     {
         $this->required = false;
         $this->attr = [];
         $this->errors = [];
+        $this->oldValue = $oldValue;
     }
 
     public function label($label = null, $escape = true)
@@ -80,15 +81,8 @@ class Base
         return $this;
     }
 
-    public function oldValue($value)
+    protected function getValue()
     {
-        $this->oldValue = $value;
-
-        return $this;
-    }
-
-    public function getValue()
-    {
-        return $this->oldValue ? $this->oldValue : $this->value;
+        return $this->oldValue !== null ? $this->oldValue : $this->value;
     }
 }

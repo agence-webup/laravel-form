@@ -26,35 +26,28 @@ class FormFactory
     public function create($type, $name)
     {
         $inputTypes = ['text', 'email', 'password', 'file', 'number'];
+        $element = null;
+        $oldValue = isset($this->oldValues[$name]) ? $this->oldValues[$name] : null;
 
         if (in_array($type, $inputTypes)) {
-            return $this->initElement(new Input($type), $name);
+            $element = new Input($type, $oldValue);
         } elseif ($type == 'radio') {
-            return $this->initElement(new Radio($type), $name);
+            $element = new Radio($type, $oldValue);
         } elseif ($type == 'checkbox') {
-            return $this->initElement(new Checkbox($type), $name);
+            $element = new Checkbox($type, $oldValue);
         } elseif ($type == 'select') {
-            return $this->initElement(new Select($type), $name);
+            $element = new Select($type, $oldValue);
         } elseif ($type == 'textarea') {
-            return $this->initElement(new Textarea($type), $name);
+            $element = new Textarea($type, $oldValue);
         } else {
             throw new Exception('Invalid form type');
         }
-    }
 
-    private function initElement(Base $input, $name)
-    {
+        $errors = [];
         if ($this->errors) {
             $errors = $this->errors->getBag('default')->has($name) ? $this->errors->get($name) : [];
-        } else {
-            $errors = [];
-        }
-        if (isset($this->oldValues[$name])) {
-            $value = $this->oldValues[$name];
-        } else {
-            $value = null;
         }
 
-        return $input->oldValue($value)->errors($errors)->name($name);
+        return $element->name($name)->errors($errors);
     }
 }

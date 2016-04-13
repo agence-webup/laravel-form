@@ -6,9 +6,9 @@ class Input extends Base
 {
     protected $type;
 
-    public function __construct($type)
+    public function __construct($type, $oldValue)
     {
-        parent::__construct();
+        parent::__construct($oldValue);
         $this->type = $type;
     }
 

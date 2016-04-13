@@ -7,9 +7,9 @@ class Radio extends Base
     protected $type;
     protected $radios = [];
 
-    public function __construct($type)
+    public function __construct($type, $oldValue)
     {
-        parent::__construct();
+        parent::__construct($oldValue);
         $this->type = $type;
     }
 
