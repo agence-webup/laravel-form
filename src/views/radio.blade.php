@@ -1,4 +1,4 @@
-<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors)f-error @endif">
+<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors){{$config['errorClass']}} @endif">
     <label>{!!$label!!}</label>
     @if($errors)
     <ul class="{{$config['errorMessageClass']}}">
@@ -20,7 +20,7 @@
         @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif
         @endforeach
         >
-        {{$radio['label']}} @if($required)<i class="f-required">*</i>@endif
+        {{$radio['label']}} @if($required)<i class="{{$config['requiredClass']}}">*</i>@endif
     </label>
     @endforeach
 </div>

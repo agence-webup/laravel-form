@@ -1,4 +1,4 @@
-<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors)f-error @endif">
+<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors){{$config['errorClass']}} @endif">
     <label for="{{$name}}">
         <input
         type="{{$type}}"
@@ -12,7 +12,7 @@
         @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif
         @endforeach
         >
-        {!! $label !!} @if($required)<i class="f-required">*</i>@endif
+        {!! $label !!} @if($required)<i class="{{$config['requiredClass']}}">*</i>@endif
     </label>
     @if($errors)
     <ul class="{{$config['errorMessageClass']}}">
