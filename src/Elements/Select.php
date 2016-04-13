@@ -42,16 +42,6 @@ class Select extends Base
         return $this;
     }
 
-    public function addOption($value = null, $label = null)
-    {
-        $this->options[] = [
-            'value' => $value,
-            'label' => $label,
-        ];
-
-        return $this;
-    }
-
     public function __toString()
     {
         return $this->render();
