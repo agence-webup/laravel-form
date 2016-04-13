@@ -24,9 +24,9 @@ class Base
         $this->oldValue = $oldValue;
     }
 
-    public function label($label = null, $escape = true)
+    public function label($label = null, $escape = false)
     {
-        $label = $escape ? $label : htmlentities($label, ENT_QUOTES, 'UTF-8', false);
+        $label = $escape ? htmlentities($label, ENT_QUOTES, 'UTF-8', false) : $label;
         $this->label = $label;
 
         return $this;
