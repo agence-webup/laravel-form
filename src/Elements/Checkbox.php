@@ -5,6 +5,7 @@ namespace Webup\LaravelForm\Elements;
 class Checkbox extends Base
 {
     protected $type;
+    protected $checked;
 
     public function __construct($type, $oldValue)
     {
@@ -17,9 +18,10 @@ class Checkbox extends Base
         return view(
         'form::checkbox', [
             'placeholder' => $this->placeholder,
-            'value' => $this->getValue(),
+            'value' => $this->value,
             'label' => $this->label,
             'required' => $this->required,
+            'checked' => $this->getChecked(),
             'name' => $this->name,
             'errors' => $this->errors,
             'type' => $this->type,
@@ -31,5 +33,17 @@ class Checkbox extends Base
     public function __toString()
     {
         return $this->render();
+    }
+
+    public function value($value = null)
+    {
+        $this->checked = $value;
+
+        return $this;
+    }
+
+    private function getChecked()
+    {
+        return $this->oldValue === null ? $this->checked : $this->oldValue;
     }
 }

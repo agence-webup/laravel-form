@@ -6,6 +6,7 @@
         name="{{$name}}"
         @if($value !== null)value="{{$value}}" @endif
         @if($required)required @endif
+        @if($checked)checked @endif
         @if($placeholder)placeholder="{{$placeholder}}"@endif
         @foreach($attr as $key => $val)
         @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif

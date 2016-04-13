@@ -34,6 +34,7 @@ class FormFactory
         } elseif ($type == 'radio') {
             $element = new Radio($type, $oldValue);
         } elseif ($type == 'checkbox') {
+            $oldValue = $this->oldValues === null ? null : isset($this->oldValues[$name]);
             $element = new Checkbox($type, $oldValue);
         } elseif ($type == 'select') {
             $element = new Select($type, $oldValue);
