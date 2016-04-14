@@ -3,7 +3,8 @@
     "description": "A Laravel package to help build forms.",
     "keywords": [
         "webup",
-        "form"
+        "form",
+        "laravel"
     ],
     "homepage": "https://github.com/agence-webup/laravel-form",
     "license": "MIT",
