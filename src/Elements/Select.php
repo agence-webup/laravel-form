@@ -33,14 +33,40 @@ class Select extends Base
     public function addOptions(array $options)
     {
         foreach ($options as $value => $label) {
+            if (is_array($label)) {
+                $this->addOptionGroup($value, $label);
+            } else {
+                $this->addOption($value, $label);
+            }
+        }
+        return $this;
+    }
+
+    private function addOptionGroup($title, $label)
+    {
+        foreach ($label as $key => $value) {
+            $this->addOption($key, $value, $title);
+        }
+    }
+
+    private function addOption($value, $label, $group = null)
+    {
+        if ($group != null) {
+            if (!isset($this->options[$group])) {
+                $this->options[$group] = [];
+            }
+            $this->options[$group][] = [
+                'value' => $value,
+                'label' => $label,
+            ];
+        } else {
             $this->options[] = [
                 'value' => $value,
                 'label' => $label,
             ];
         }
-
-        return $this;
     }
+
 
     public function __toString()
     {

@@ -130,9 +130,19 @@ Specific methods :
 ``` php
 {!! Form::create('select', 'fruits')
     ->label("Fruits")
-    ->placeholder('What's your favorite?')
+    ->placeholder("What's your favorite?")
     ->addOptions(['apple' => 'Apple', 'strawberry' => 'Strawberry', 'melon' => 'Melon'])
     ->value('apple') !!}
+```
+
+with optgroup (Groups aren't selectable) :
+
+``` php
+{!! Form::create('select', 'fruits')
+    ->label("Fruits")
+    ->placeholder("What's your favorite?")
+    ->addOptions(['Apple' => ['lady' => 'Lady', 'mcintosh' => 'McIntosh'], 'strawberry' => 'Strawberry', 'Melon' => ['watermelon' => 'Watermelon', 'charentais_melon' => 'Charentais Melon']])
+    ->value('charentais_melon') !!}
 ```
 
 Specific methods :
