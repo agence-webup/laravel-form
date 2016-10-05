@@ -63,7 +63,7 @@ These methods can be used with any type of elements:
     ->label('Name')
     ->value('Barney')
     ->required()
-    ->attr('maxlenght' => '50')
+    ->attr(['maxlenght' => '50'])
     ->wrapperClass('f-custom-class') !!}
 ```
 
