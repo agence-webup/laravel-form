@@ -130,7 +130,7 @@ Specific methods :
 ``` php
 {!! Form::create('select', 'fruits')
     ->label("Fruits")
-    ->placeholder('What's your favorite?')
+    ->placeholder("What's your favorite?")
     ->addOptions(['apple' => 'Apple', 'strawberry' => 'Strawberry', 'melon' => 'Melon'])
     ->value('apple') !!}
 ```
