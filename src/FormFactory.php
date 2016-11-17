@@ -25,7 +25,18 @@ class FormFactory
 
     public function create($type, $name)
     {
-        $inputTypes = ['text', 'email', 'password', 'file', 'number'];
+        $inputTypes = [
+                        'text',
+                        'email',
+                        'password',
+                        'file',
+                        'number',
+                        'color',
+                        'date',
+                        'range',
+                        'tel',
+                        'url',
+        ];
         $element = null;
         $oldValue = isset($this->oldValues[$name]) ? $this->oldValues[$name] : null;
 
