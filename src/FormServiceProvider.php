@@ -28,7 +28,7 @@ class FormServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['form'] = $this->app->share(function ($app) {
+        $this->app->singleton('form', function ($app) {
             return new FormFactory(
                 $this->app['config']->get('form'),
                 $this->app['request']->session()->get('_old_input'),
