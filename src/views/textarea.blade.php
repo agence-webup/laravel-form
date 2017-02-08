@@ -4,7 +4,6 @@
     type="{{$type}}"
     id="{{$name}}"
     name="{{$name}}"
-    @if($value !== null)value="{{$value}}" @endif
     @if($required)required @endif
     @if($placeholder)placeholder="{{$placeholder}}"@endif
     @foreach($attr as $key => $val)
