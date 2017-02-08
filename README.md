@@ -135,6 +135,16 @@ Specific methods :
     ->value('apple') !!}
 ```
 
+with optgroup (Groups aren't selectable) :
+
+``` php
+{!! Form::create('select', 'fruits')
+    ->label("Fruits")
+    ->placeholder("What's your favorite?")
+    ->addOptions(['Apple' => ['lady' => 'Lady', 'mcintosh' => 'McIntosh'], 'strawberry' => 'Strawberry', 'Melon' => ['watermelon' => 'Watermelon', 'charentais_melon' => 'Charentais Melon']])
+    ->value('charentais_melon') !!}
+```
+
 Specific methods :
 
 * addOptions(array $options)

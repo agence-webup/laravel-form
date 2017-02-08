@@ -11,8 +11,16 @@
     @endforeach
     >
     @if($placeholder !== null)<option disabled selected>Choisir une valeur</option>@endif
-    @foreach($options as $option)
-    <option value="{{$option['value']}}" @if($option['value'] == $value)selected @endif >{{$option['label']}}</option>
+    @foreach($options as $key => $option)
+        @if(!isset($option['value']) && !isset($option['label']))
+            <optgroup label="{{ $key }}">
+                @foreach($option as $subOption)
+                    <option value="{{$subOption['value']}}" @if($subOption['value'] == $value)selected @endif >{{$subOption['label']}}</option>
+                @endforeach
+            </optgroup>
+        @else
+            <option value="{{$option['value']}}" @if($option['value'] == $value)selected @endif >{{$option['label']}}</option>
+        @endif
     @endforeach
 </select>
 @if($errors)
