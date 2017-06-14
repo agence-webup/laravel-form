@@ -19,6 +19,7 @@ class Select extends Base
         'form::select', [
             'placeholder' => $this->placeholder,
             'value' => $this->getValue(),
+            'values' => explode(',', $this->getValue()),
             'label' => $this->label,
             'required' => $this->required,
             'name' => $this->name,
