@@ -12,7 +12,7 @@
     >
     @if($placeholder !== null)<option disabled selected>Choisir une valeur</option>@endif
     @foreach($options as $option)
-    <option value="{{$option['value']}}" @if($option['value'] == $value)selected @endif >{{$option['label']}}</option>
+    <option value="{{$option['value']}}" @if($option['value'] == $value || in_array($option['value'],$values))selected @endif >{{$option['label']}}</option>
     @endforeach
 </select>
 @if($errors)
