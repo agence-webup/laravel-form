@@ -21,6 +21,7 @@ class Checkbox extends Base
             'value' => $this->value,
             'label' => $this->label,
             'required' => $this->required,
+            'requiredStar' => $this->requiredStar,
             'checked' => $this->getChecked(),
             'name' => $this->name,
             'errors' => $this->errors,

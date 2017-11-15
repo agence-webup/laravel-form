@@ -1,5 +1,7 @@
 <div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors){{$config['errorClass']}} @endif" @foreach($wrapperAttr as $key => $val) @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif @endforeach>
-    @if($label) <label for="{{$name}}">{!! $label !!} @if($required)<i class="{{$config['requiredClass']}}">*</i>@endif</label>@endif
+    @if($label)
+    <label for="{{$name}}">{!! $label !!} @if($requiredStar)<i class="{{$config['requiredClass']}}">*</i>@endif</label>
+    @endif
     <select
     id="{{$name}}"
     name="{{$name}}"

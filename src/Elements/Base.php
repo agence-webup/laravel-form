@@ -11,6 +11,7 @@ class Base
     protected $placeholder;
     protected $divClass;
     protected $required;
+    protected $requiredStar;
     protected $wrapperClass;
     protected $wrapperAttr;
 
@@ -20,6 +21,7 @@ class Base
     public function __construct($oldValue)
     {
         $this->required = false;
+        $this->requiredStar = false;
         $this->attr = [];
         $this->wrapperAttr = [];
         $this->errors = [];
@@ -55,9 +57,10 @@ class Base
         return $this;
     }
 
-    public function required()
+    public function required($requiredStar = true)
     {
         $this->required = true;
+        $this->requiredStar = $requiredStar;
 
         return $this;
     }

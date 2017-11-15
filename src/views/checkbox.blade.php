@@ -12,7 +12,7 @@
         @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif
         @endforeach
         >
-        {!! $label !!} @if($required)<i class="{{$config['requiredClass']}}">*</i>@endif
+        {!! $label !!} @if($requiredStar)<i class="{{$config['requiredClass']}}">*</i>@endif
     </label>
     @if($errors)
     <ul class="{{$config['errorMessageClass']}}">

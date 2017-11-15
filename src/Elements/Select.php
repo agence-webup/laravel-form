@@ -22,6 +22,7 @@ class Select extends Base
             'values' => explode(',', $this->getValue()),
             'label' => $this->label,
             'required' => $this->required,
+            'requiredStar' => $this->requiredStar,
             'name' => $this->name,
             'errors' => $this->errors,
             'type' => $this->type,
