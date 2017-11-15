@@ -12,6 +12,7 @@ class Base
     protected $divClass;
     protected $required;
     protected $wrapperClass;
+    protected $wrapperAttr;
 
     protected $errors;
     protected $attr;
@@ -20,6 +21,7 @@ class Base
     {
         $this->required = false;
         $this->attr = [];
+        $this->wrapperAttr = [];
         $this->errors = [];
         $this->oldValue = $oldValue;
     }
@@ -77,6 +79,13 @@ class Base
     public function wrapperClass($wrapperClass)
     {
         $this->wrapperClass = $wrapperClass;
+
+        return $this;
+    }
+
+    public function wrapperAttr(array $attr = [])
+    {
+        $this->wrapperAttr = $attr;
 
         return $this;
     }

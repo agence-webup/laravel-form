@@ -25,6 +25,7 @@ class Textarea extends Base
             'type' => $this->type,
             'attr' => $this->attr,
             'wrapperClass' => $this->wrapperClass,
+            'wrapperAttr' => $this->wrapperAttr,
         ])->render();
     }
 

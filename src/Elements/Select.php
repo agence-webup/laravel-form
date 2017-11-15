@@ -28,6 +28,7 @@ class Select extends Base
             'attr' => $this->attr,
             'options' => $this->options,
             'wrapperClass' => $this->wrapperClass,
+            'wrapperAttr' => $this->wrapperAttr,
         ])->render();
     }
 

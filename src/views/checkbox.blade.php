@@ -1,4 +1,4 @@
-<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors){{$config['errorClass']}} @endif">
+<div class="{{$config['divClass']}} {{$wrapperClass}} @if($errors){{$config['errorClass']}} @endif" @foreach($wrapperAttr as $key => $val) @if(is_int($key)){{$val}}@else{{$key}}="{{$val}}"@endif @endforeach>
     <label for="{{$name}}">
         <input
         type="{{$type}}"

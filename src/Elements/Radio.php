@@ -26,6 +26,7 @@ class Radio extends Base
             'attr' => $this->attr,
             'radios' => $this->radios,
             'wrapperClass' => $this->wrapperClass,
+            'wrapperAttr' => $this->wrapperAttr,
         ])->render();
     }
 
