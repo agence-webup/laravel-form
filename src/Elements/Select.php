@@ -15,8 +15,12 @@ class Select extends Base
 
     public function render()
     {
-        return view(
-        'form::select', [
+        if (array_key_exists('class', $this->wrapperAttr)) {
+            $this->wrapperClass = $this->wrapperAttr['class'] . ' ' . $this->wrapperClass;
+            unset($this->wrapperAttr['class']);
+        }
+
+        return view('form::select', [
             'placeholder' => $this->placeholder,
             'value' => $this->getValue(),
             'values' => explode(',', $this->getValue()),

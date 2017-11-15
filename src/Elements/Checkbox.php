@@ -15,8 +15,12 @@ class Checkbox extends Base
 
     public function render()
     {
-        return view(
-        'form::checkbox', [
+        if (array_key_exists('class', $this->wrapperAttr)) {
+            $this->wrapperClass = $this->wrapperAttr['class'] . ' ' . $this->wrapperClass;
+            unset($this->wrapperAttr['class']);
+        }
+
+        return view('form::checkbox', [
             'placeholder' => $this->placeholder,
             'value' => $this->value,
             'label' => $this->label,

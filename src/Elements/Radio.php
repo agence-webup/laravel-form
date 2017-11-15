@@ -15,8 +15,12 @@ class Radio extends Base
 
     public function render()
     {
-        return view(
-        'form::radio', [
+        if (array_key_exists('class', $this->wrapperAttr)) {
+            $this->wrapperClass = $this->wrapperAttr['class'] . ' ' . $this->wrapperClass;
+            unset($this->wrapperAttr['class']);
+        }
+
+        return view('form::radio', [
             'value' => $this->getValue(),
             'label' => $this->label,
             'required' => $this->required,

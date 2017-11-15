@@ -14,8 +14,12 @@ class Textarea extends Base
 
     public function render()
     {
-        return view(
-        'form::textarea', [
+        if (array_key_exists('class', $this->wrapperAttr)) {
+            $this->wrapperClass = $this->wrapperAttr['class'] . ' ' . $this->wrapperClass;
+            unset($this->wrapperAttr['class']);
+        }
+
+        return view('form::textarea', [
             'placeholder' => $this->placeholder,
             'value' => $this->getValue(),
             'label' => $this->label,
