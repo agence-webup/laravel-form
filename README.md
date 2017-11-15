@@ -50,10 +50,11 @@ These methods can be used with any type of elements:
 * value($value = null)
 * placeholder($placeholder = null)
 * name($name = null)
-* required()
+* required($showStar = true)
 * errors($errors = [])
 * attr(array $attr = [])
-* wrapperClass($wrapperClass)
+* wrapperAttr(array $attr = [])
+* wrapperClass($wrapperClass) **deprecated** use wrapperAttr(['class' => 'myclass'])
 
 ### Generated HTML
 
@@ -64,7 +65,7 @@ These methods can be used with any type of elements:
     ->value('Barney')
     ->required()
     ->attr(['maxlenght' => '50'])
-    ->wrapperClass('f-custom-class') !!}
+    ->wrapperAttr(['class' => 'f-custom-class']) !!}
 ```
 
 Without errors:
@@ -100,7 +101,7 @@ You can override default CSS class in config/form.php.
     ->value('homer.simpson@example.com')
     ->placeholder('example@adresse.com')
     ->required()
-    ->wrapperClass('custom-class') !!}
+    ->wrapperAttr(['class' => 'custom-class') !!]}
 ```
 
 #### textarea
@@ -117,7 +118,7 @@ You can override default CSS class in config/form.php.
 {!! Form::create('radio', 'gender')->label('Gender')
     ->addRadio(1, 'Male', 'male')
     ->addRadio(0, 'Female', 'female')
-    ->wrapperClass('custom-class')
+    ->wrapperAttr(['class' => 'custom-class'])
     ->value(0) !!}
 ```
 
