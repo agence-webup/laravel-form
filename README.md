@@ -101,7 +101,7 @@ You can override default CSS class in config/form.php.
     ->value('homer.simpson@example.com')
     ->placeholder('example@adresse.com')
     ->required()
-    ->wrapperAttr(['class' => 'custom-class') !!]}
+    ->wrapperAttr(['class' => 'custom-class']) !!}
 ```
 
 #### textarea
