@@ -45,7 +45,7 @@ class TimeTrap
     {
         $submitedTime = $this->decryptTime($value);
 
-        $timeToSubmit = (is_array($parameters) && count($parameters) > 0) ? $parameters[0] : config("form.antiSpam.defaultTimeToSubmit", 3);
+        $timeToSubmit = (is_array($parameters) && count($parameters) > 0) ? $parameters[0] : config("form.antiSpam.minFormSubmitTime", 3);
 
         return ($submitedTime && ($submitedTime + $timeToSubmit) < time());
     }

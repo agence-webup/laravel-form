@@ -6,6 +6,6 @@ return array(
     'errorClass' => 'f-error',
     'errorMessageClass' => 'f-error-message',
     'antiSpam' => [
-        'defaultTimeToSubmit' => "3",
+        'minFormSubmitTime' => "3",//Number of seconds for the form to be valid
     ]
 );

@@ -148,6 +148,41 @@ Specific methods :
     ->value(true) !!}
 ```
 
+## AntiSpam feature
+
+### Honeypot
+
+``` php
+{!! Form::honeypot("unicorn_mail") !!}
+```
+Will create an input `text` with `name='unicorn_mail'` within a hidden div (by javascript)
+
+#### Validation
+
+``` php
+$request->validate([
+    [...]
+    'unicorn_mail' => 'honeypot',
+]);
+```
+
+### TimeTrap
+
+``` php
+{!! Form::timetrap("unicorn_time") !!}
+```
+Will create an input `text` with `name='unicorn_time'` and `value="{encryptedTimestamp}"` within a hidden div (by javascript)
+
+#### Validation
+
+``` php
+$request->validate([
+    [...]
+    'unicorn_time' => 'timetrap:2',
+]);
+```
+In this example, timetrap time is set to `2` seconds. If no value is set, config `form.antiSpam.minFormSubmitTime` is taken. Finally if config `form.antiSpam.minFormSubmitTime` is not set, default value is `3` seconds.
+
 ## Styling
 
 Bellow, you will find default styles that can work with Laravel Form.
