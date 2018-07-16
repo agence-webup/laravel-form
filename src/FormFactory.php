@@ -8,6 +8,9 @@ use Webup\LaravelForm\Elements\Radio;
 use Webup\LaravelForm\Elements\Textarea;
 use Webup\LaravelForm\Elements\Select;
 use Webup\LaravelForm\Elements\Checkbox;
+use Webup\LaravelForm\Elements\HoneyPot;
+use Webup\LaravelForm\Elements\TimeTrap;
+
 use Exception;
 
 class FormFactory
@@ -61,5 +64,23 @@ class FormFactory
         }
 
         return $element->name($name)->errors($errors);
+    }
+
+    public function honeypot($name)
+    {
+        $errors = [];
+        if ($this->errors) {
+            $errors = $this->errors->getBag('default')->has($name) ? $this->errors->get($name) : [];
+        }
+        return (new HoneyPot($name))->errors($errors);
+    }
+
+    public function timetrap($name)
+    {
+        $errors = [];
+        if ($this->errors) {
+            $errors = $this->errors->getBag('default')->has($name) ? $this->errors->get($name) : [];
+        }
+        return (new TimeTrap($name))->errors($errors);
     }
 }

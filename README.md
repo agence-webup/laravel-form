@@ -101,7 +101,7 @@ You can override default CSS class in config/form.php.
     ->value('homer.simpson@example.com')
     ->placeholder('example@adresse.com')
     ->required()
-    ->wrapperAttr(['class' => 'custom-class') !!]}
+    ->wrapperAttr(['class' => 'custom-class']) !!}
 ```
 
 #### textarea
@@ -147,6 +147,41 @@ Specific methods :
     ->label("I accept the general terms and conditions")
     ->value(true) !!}
 ```
+
+## AntiSpam feature
+
+### Honeypot
+
+``` php
+{!! Form::honeypot("unicorn_mail") !!}
+```
+Will create an input `text` with `name='unicorn_mail'` within a hidden div (by javascript)
+
+#### Validation
+
+``` php
+$request->validate([
+    [...]
+    'unicorn_mail' => 'honeypot',
+]);
+```
+
+### TimeTrap
+
+``` php
+{!! Form::timetrap("unicorn_time") !!}
+```
+Will create an input `text` with `name='unicorn_time'` and `value="{encryptedTimestamp}"` within a hidden div (by javascript)
+
+#### Validation
+
+``` php
+$request->validate([
+    [...]
+    'unicorn_time' => 'timetrap:2',
+]);
+```
+In this example, timetrap time is set to `2` seconds. If no value is set, config `form.antiSpam.minFormSubmitTime` is taken. Finally if config `form.antiSpam.minFormSubmitTime` is not set, default value is `3` seconds.
 
 ## Styling
 
