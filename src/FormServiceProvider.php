@@ -32,7 +32,12 @@ class FormServiceProvider extends ServiceProvider
 
         $translationSource = realpath(__DIR__.'/lang/');
         $this->loadTranslationsFrom($translationSource, 'form');
-        $this->publishes([$translationSource => resource_path('lang/vendor/form')]);
+        
+        if (function_exists("resource_path")) {
+            $this->publishes([$translationSource => resource_path('lang/vendor/form')]);
+        } else {
+            $this->publishes([$translationSource => app_path('resources/lang/vendor/form')]);
+        }
     }
 
     /**
