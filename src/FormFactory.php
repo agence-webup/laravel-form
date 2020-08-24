@@ -60,7 +60,16 @@ class FormFactory
 
         $errors = [];
         if ($this->errors) {
-            $errors = $this->errors->getBag('default')->has($name) ? $this->errors->get($name) : [];
+            $parsed = str_replace('[', '.', $name);
+            $parsed = str_replace(']', '', $parsed);
+
+            if ($this->errors->getBag('default')->has($name)) {
+                $errors = $this->errors->get($name);
+            } elseif ($this->errors->getBag('default')->has($parsed)) {
+                $errors = $this->errors->get($parsed);
+            } else {
+                $errors = [];
+            }
         }
 
         return $element->name($name)->errors($errors);
