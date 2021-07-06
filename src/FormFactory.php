@@ -2,7 +2,7 @@
 
 namespace Webup\LaravelForm;
 
-use Webup\LaravelForm\Elements\Base;
+use Illuminate\Support\Arr;
 use Webup\LaravelForm\Elements\Input;
 use Webup\LaravelForm\Elements\Radio;
 use Webup\LaravelForm\Elements\Textarea;
@@ -41,7 +41,13 @@ class FormFactory
                         'url',
         ];
         $element = null;
-        $oldValue = isset($this->oldValues[$name]) ? $this->oldValues[$name] : null;
+        $oldValue = null;
+        $dottedKey = $this->nameToDottedKey($name);
+        if (isset($this->oldValues[$name])) {
+            $oldValue = $this->oldValues[$name];
+        } elseif (Arr::has($this->oldValues, $dottedKey)) {
+            $oldValue = Arr::get($this->oldValues, $dottedKey);
+        }
 
         if (in_array($type, $inputTypes)) {
             $element = new Input($type, $oldValue);
@@ -60,19 +66,10 @@ class FormFactory
 
         $errors = [];
         if ($this->errors) {
-            if (str_ends_with($name, '[]')) {
-                $name = substr($name, 0, strlen($name) - 2);
-            }
-
-            $parsed = str_replace('[', '.', $name);
-            $parsed = str_replace(']', '', $parsed);
-
             if ($this->errors->getBag('default')->has($name)) {
                 $errors = $this->errors->get($name);
-            } elseif ($this->errors->getBag('default')->has($parsed)) {
-                $errors = $this->errors->get($parsed);
-            } else {
-                $errors = [];
+            } elseif ($this->errors->getBag('default')->has($dottedKey)) {
+                $errors = $this->errors->get($dottedKey);
             }
         }
 
@@ -95,5 +92,13 @@ class FormFactory
             $errors = $this->errors->getBag('default')->has($name) ? $this->errors->get($name) : [];
         }
         return (new TimeTrap($name))->errors($errors);
+    }
+
+    private function nameToDottedKey($name)
+    {
+        $key = str_replace('[', '.', $name);
+        $key = str_replace(']', '', $key);
+
+        return trim($key, '.');
     }
 }
