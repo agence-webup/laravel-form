@@ -33,8 +33,10 @@ class HoneyPot
         return $this->render();
     }
 
-    public function checkHoneypot($attribute, $value, $parameters)
+    public function checkHoneypot($attribute, $value, $parameters, $validator)
     {
-        return $value == '';
+        $data = $validator->getData();
+        
+        return array_key_exists($attribute, $data) && !$value;
     }
 }

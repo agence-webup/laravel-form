@@ -19,8 +19,8 @@ class FormServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/views/', 'form');
 
 
-        Validator::extend('honeypot', "form_honeypot@checkHoneypot", trans("form::antispam.honeypot"));
-        Validator::extend('timetrap', "form_timetrap@checkTimeTrap", trans("form::antispam.timetrap"));
+        Validator::extendImplicit('honeypot', "form_honeypot@checkHoneypot", trans("form::antispam.honeypot"));
+        Validator::extendImplicit('timetrap', "form_timetrap@checkTimeTrap", trans("form::antispam.timetrap"));
     }
 
     protected function setupConfig()

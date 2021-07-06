@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'honeypot' => 'Spam detected',
-    'timetrap' => 'Please wait a few seconds before submitting the form again.',
+    'honeypot' => 'Spam detected.',
+    'timetrap' => 'Spam detected. Please wait a few seconds before submitting the form again.',
 ];

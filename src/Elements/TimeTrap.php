@@ -43,7 +43,11 @@ class TimeTrap
 
     public function checkTimeTrap($attribute, $value, $parameters)
     {
-        $submitedTime = $this->decryptTime($value);
+        try {
+            $submitedTime = $this->decryptTime($value);
+        } catch (\Illuminate\Contracts\Encryption\DecryptException $e) {
+            return false;
+        }
 
         $timeToSubmit = (is_array($parameters) && count($parameters) > 0) ? $parameters[0] : config("form.antiSpam.minFormSubmitTime", 3);
 
