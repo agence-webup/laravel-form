@@ -148,6 +148,8 @@ Specific methods :
     ->value(true) !!}
 ```
 
+You can use `->attr(['value' => '1'])` to change the value of the checkbox
+
 ## AntiSpam feature
 
 ### Honeypot
