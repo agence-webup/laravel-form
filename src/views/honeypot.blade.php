@@ -7,12 +7,12 @@
 </div>
 
 
+@if($errors)
 <div class="{{$config['divClass']}} @if($errors){{$config['errorClass']}} @endif">
-  @if($errors)
     <ul class="{{$config['errorMessageClass']}}">
         @foreach ($errors as $error)
         <li>{{$error}}</li>
         @endforeach
     </ul>
-  @endif
 </div>
+@endif
