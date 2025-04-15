@@ -20,10 +20,12 @@ class Select extends Base
             unset($this->wrapperAttr['class']);
         }
 
+        $value = $this->getValue();
+
         return view('form::select', [
             'placeholder' => $this->placeholder,
             'value' => $this->getValue(),
-            'values' => explode(',', $this->getValue()),
+            'values' => $value ? explode(',', $value) : [],
             'label' => $this->label,
             'required' => $this->required,
             'requiredStar' => $this->requiredStar,
